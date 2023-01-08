@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Set the title and overview of the movie recommendation
       card.querySelector("h1").textContent = recommendation.title;
       card.querySelector("p").textContent = recommendation.overview;
+      card.querySelector(".rating").innerHTML = recommendation.voteAverage;
     });
   // Center the cards horizontally and vertically
   const cardContainer = document.querySelector(".card-container");
