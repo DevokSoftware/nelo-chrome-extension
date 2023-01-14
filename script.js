@@ -63,8 +63,14 @@ searchInput.addEventListener("keydown", async (event) => {
     data.forEach((movie) => {
       const movieElement = document.createElement("div");
       movieElement.classList.add("movie");
-      movieElement.innerHTML = `<p>${movie.title} (${movie.releaseYear})</p>`;
-      movieElement.addEventListener("click", async () => {
+      movieElement.innerHTML = `<p class="movieResult">
+      <i class="fa fa-check-circle" aria-hidden="true" style="color: #2cd211; margin-right:5px;    cursor: pointer;"></i>
+      ${movie.title} (${movie.releaseYear})
+      </p>`;
+
+      const test = movieElement.querySelector(".fa-check-circle");
+
+      test.addEventListener("click", async () => {
         const movieId = movie.externalId;
         const response = await fetch(
           "http://localhost:8080/movie-recommendation/watched",
