@@ -1,10 +1,21 @@
-<div class="card-container">
+<div class="card-container" id="get-movie">
   <div class="card">
     <div class="overlay">
       <h1>Card 1</h1>
       <p>Some text</p>
     </div>
     <div class="rating">8.0</div>
+  </div>
+  <div class="card" id="search-movie">
+    <div class="overlay">
+      <input type="text" id="search-input" placeholder="Watched Movie.." />
+      <div
+        id="search-results-container"
+        style="height: 200px; overflow-y: scroll"
+      >
+        <div id="search-results"></div>
+      </div>
+    </div>
   </div>
 </div>
 
