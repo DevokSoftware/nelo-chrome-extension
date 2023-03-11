@@ -1,0 +1,6 @@
+node_modules
+build
+
+extension/content.js.LICENSE.txt
+extension/newTab.html
+package-lock.json
