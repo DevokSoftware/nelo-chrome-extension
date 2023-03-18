@@ -1,23 +1,19 @@
 import React from "react";
 import "./App.css";
+import Container from "./components/Container";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // <div className="card-container" id="get-movie">
+    //   <div className="card">
+    //     <div className="overlay">
+    //       <h1>Card 1</h1>
+    //       <p>Some text</p>
+    //     </div>
+    //     <div className="rating">8.0</div>
+    //   </div>
+    // </div>
+    <Container />
   );
 }
 
