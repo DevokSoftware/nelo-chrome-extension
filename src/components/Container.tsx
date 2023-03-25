@@ -1,10 +1,10 @@
 import React, { FC } from "react";
-import MovieCard from "./Card";
+import MovieCard from "./MovieCard";
 
 const Container: FC = () => {
   return (
     <div className="mainContainer">
-      <MovieCard title="test" />
+      <MovieCard />
     </div>
   );
 };
