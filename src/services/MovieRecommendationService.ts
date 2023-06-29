@@ -1,8 +1,10 @@
 import http from "../http-common";
 import IRecommendation from "../types/Recommendation";
 
-const getMovieRecomendation = () => {
-  return http.get<IRecommendation>(`/recommendation`);
+const getMovieRecomendation = (watchedMovieId: string) => {
+  return http.get<IRecommendation>(
+    `/recommendation?watchedMovieId=` + watchedMovieId
+  );
 };
 
 const MovieRecommendationService = {

@@ -1,19 +1,26 @@
 import React from "react";
 import "./App.css";
 import Container from "./components/Container";
+import { ChakraProvider } from "@chakra-ui/react";
+import { extendTheme } from "@chakra-ui/react";
 
-function App() {
+function App(): JSX.Element {
+  const theme = extendTheme({
+    useSystemColorMode: false,
+    styles: {
+      global: {
+        // styles for the `body`
+        body: {
+          bgGradient: "linear(red.50 0%, orange.100 25%, yellow.100 50%)",
+          color: "white",
+        },
+      },
+    },
+  });
   return (
-    // <div className="card-container" id="get-movie">
-    //   <div className="card">
-    //     <div className="overlay">
-    //       <h1>Card 1</h1>
-    //       <p>Some text</p>
-    //     </div>
-    //     <div className="rating">8.0</div>
-    //   </div>
-    // </div>
-    <Container />
+    <ChakraProvider theme={theme}>
+      <Container />
+    </ChakraProvider>
   );
 }
 

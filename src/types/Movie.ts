@@ -1,5 +1,4 @@
 export default interface IMovie {
-  id: string;
   externalId: string;
   title: string;
   originalTitle: string;
@@ -7,4 +6,5 @@ export default interface IMovie {
   overview: string;
   voteAverage: number;
   releaseYear: number;
+  imageUrl: string;
 }

@@ -1,12 +1,26 @@
 import React, { FC } from "react";
 import MovieCard from "./MovieCard";
+import { Grid, GridItem, SimpleGrid } from "@chakra-ui/react";
 
-const Container: FC = () => {
+function Container(): JSX.Element {
   return (
     <div className="mainContainer">
-      <MovieCard />
+      <SimpleGrid columns={{ sm: 2, md: 4 }} gap={4} w="90%">
+        <GridItem>
+          <MovieCard />
+        </GridItem>
+        <GridItem>
+          <MovieCard />
+        </GridItem>
+        <GridItem>
+          <MovieCard />
+        </GridItem>
+        <GridItem>
+          <MovieCard />
+        </GridItem>
+      </SimpleGrid>
     </div>
   );
-};
+}
 
 export default Container;
