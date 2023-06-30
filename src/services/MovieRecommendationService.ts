@@ -3,7 +3,9 @@ import IRecommendation from "../types/Recommendation";
 
 const getMovieRecomendation = (watchedMovieId: string) => {
   return http.get<IRecommendation>(
-    `/recommendation?watchedMovieId=` + watchedMovieId
+    watchedMovieId
+      ? `/recommendation?watchedMovieId=` + watchedMovieId
+      : `/recommendation`
   );
 };
 

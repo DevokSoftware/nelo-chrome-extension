@@ -1,5 +1,5 @@
-import { Pane, StarEmptyIcon } from "evergreen-ui";
-import React, { FC, useEffect, useState } from "react";
+import { EyeOpenIcon, GridViewIcon, Pane, StarEmptyIcon } from "evergreen-ui";
+import React, { FC, MouseEventHandler, useEffect, useState } from "react";
 import IRecommendation from "../types/Recommendation";
 import MovieRecommendationService from "../services/MovieRecommendationService";
 import {
@@ -13,6 +13,10 @@ import {
   Image,
   Stack,
   Box,
+  Button,
+  Tooltip,
+  SimpleGrid,
+  Tag,
 } from "@chakra-ui/react";
 
 function MovieCard(): JSX.Element {
@@ -24,12 +28,10 @@ function MovieCard(): JSX.Element {
   }, []);
 
   const getRandomWatchedMovie = (): string => {
-    localStorage.setItem("watchedMovies", JSON.stringify(["447365"]));
     let watchedMovies: string[] = JSON.parse(
       localStorage.getItem("watchedMovies") || "[]"
     );
-    // watchedMovies.push(watecheMovie);
-    // localStorage.setItem("watchedMovies", JSON.stringify(watchedMovies));
+    console.log(watchedMovies);
     return watchedMovies[Math.floor(Math.random() * watchedMovies.length)];
   };
 
@@ -76,8 +78,6 @@ function MovieCard(): JSX.Element {
     <>
       <Card
         maxW="md"
-        // minH="md"
-        // maxH="xl"
         h="xl"
         boxShadow="xl"
         rounded="xl"
@@ -86,6 +86,22 @@ function MovieCard(): JSX.Element {
         overflow="hidden"
         style={{ filter: "drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.2))" }}
       >
+        <Button
+          position="fixed"
+          right={0}
+          top={0}
+          onClick={() => addWatchedMovie()}
+          padding={0}
+          background="none"
+        >
+          <Tooltip label="Watched!">
+            <EyeOpenIcon size={25} />
+          </Tooltip>
+        </Button>
+        <Tag position="fixed" left={0} top={0} size="md" textDecoration="none">
+          {movieRecommendation?.criteria}
+        </Tag>
+
         <CardHeader padding={0} h="50%">
           <Image h="100%" w="100%" objectFit="cover" src={buildImageUrl()} />
         </CardHeader>
@@ -96,8 +112,21 @@ function MovieCard(): JSX.Element {
               {movieRecommendation?.movie.overview}
             </Text>
           </Stack>
+          <Box mt="1vh">
+            {movieRecommendation?.movie.genres.map(function (genre) {
+              return (
+                <Tag variant="outline" colorScheme="blue" mr="3px">
+                  {genre}
+                </Tag>
+              );
+            })}
+          </Box>
         </CardBody>
-        <CardFooter h="15%">{getMovieStars()}</CardFooter>
+        <CardFooter h="15%">
+          <SimpleGrid w="100%">
+            <Box margin="auto">{getMovieStars()}</Box>
+          </SimpleGrid>
+        </CardFooter>
       </Card>
     </>
   );

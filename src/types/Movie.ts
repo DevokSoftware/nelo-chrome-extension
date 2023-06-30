@@ -2,7 +2,7 @@ export default interface IMovie {
   externalId: string;
   title: string;
   originalTitle: string;
-  genreIds: number[];
+  genres: string[];
   overview: string;
   voteAverage: number;
   releaseYear: number;
